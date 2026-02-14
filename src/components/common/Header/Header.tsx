@@ -2,12 +2,16 @@
 
 import React, { useState } from "react";
 import Link from "next/link";
-import { Box, IconButton, Drawer, Typography, Avatar } from "@mui/material";
+import { useRouter } from "next/router";
+import { Box, IconButton, Drawer, Typography, Avatar, Button as MuiButton, Menu, MenuItem } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
 import CloseIcon from "@mui/icons-material/Close";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
+import PersonOutlineIcon from "@mui/icons-material/PersonOutline";
+import LogoutIcon from "@mui/icons-material/Logout";
 import { Button } from "@/components/common/Button/Button";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { useAuth } from "@/contexts/AuthContext";
 
 type User = {
     name: string;
@@ -25,7 +29,7 @@ type HeaderProps = {
     bgHeight?: number | string;
     /** Logo gösterilsin mi — varsayılan true */
     showLogo?: boolean;
-    /** Giriş yapmış kullanıcı — verilmezse Kayıt Ol / Giriş Yap gösterilir */
+    /** Giriş yapmış kullanıcı — verilmezse AuthContext'ten okunur; yoksa Kayıt Ol / Giriş Yap gösterilir */
     user?: User;
 };
 
@@ -35,11 +39,33 @@ export const Header: React.FC<HeaderProps> = ({
     bgColor = "#4361ee",
     bgHeight,
     showLogo = true,
-    user,
+    user: userProp,
 }) => {
     const { t } = useLanguage();
+    const { user: authUser, logout } = useAuth();
+    const router = useRouter();
+    const user = userProp ?? (authUser ? { name: `${authUser.firstname} ${authUser.lastname}`, title: authUser.title, avatar: authUser.avatar } : undefined);
     const showDecor = bgColor !== "transparent";
     const [menuOpen, setMenuOpen] = useState(false);
+    const [profileAnchorEl, setProfileAnchorEl] = useState<null | HTMLElement>(null);
+    const profileMenuOpen = Boolean(profileAnchorEl);
+
+    const handleProfileMenuOpen = (event: React.MouseEvent<HTMLElement>) => {
+        setProfileAnchorEl(event.currentTarget);
+    };
+    const handleProfileMenuClose = () => {
+        setProfileAnchorEl(null);
+    };
+    const handleProfileClick = () => {
+        handleProfileMenuClose();
+        router.push("/profile");
+    };
+    const handleLogoutClick = () => {
+        handleProfileMenuClose();
+        setMenuOpen(false);
+        logout();
+        router.push("/");
+    };
 
     return (
         <>
@@ -178,14 +204,18 @@ export const Header: React.FC<HeaderProps> = ({
 
                     {user ? (
                         <>
-                            {/* Desktop: Profil bilgisi */}
+                            {/* Desktop: Profil bilgisi — tıklanınca dropdown; hero'da (transparent) biraz solda */}
                             <Box
+                                onClick={handleProfileMenuOpen}
                                 sx={{
                                     display: { xs: "none", md: "flex" },
                                     alignItems: "center",
                                     gap: 1.5,
                                     cursor: "pointer",
                                 }}
+                                aria-controls={profileMenuOpen ? "profile-menu" : undefined}
+                                aria-haspopup="true"
+                                aria-expanded={profileMenuOpen ? "true" : undefined}
                             >
                                 <Box sx={{ textAlign: "right" }}>
                                     <Typography
@@ -227,6 +257,56 @@ export const Header: React.FC<HeaderProps> = ({
                                     }}
                                 />
                             </Box>
+                            <Menu
+                                id="profile-menu"
+                                anchorEl={profileAnchorEl}
+                                open={profileMenuOpen}
+                                onClose={handleProfileMenuClose}
+                                disableScrollLock
+                                anchorOrigin={{ vertical: "bottom", horizontal: "right" }}
+                                transformOrigin={{ vertical: "top", horizontal: "right" }}
+                                slotProps={{
+                                    paper: {
+                                        sx: {
+                                            minWidth: 180,
+                                            mt: 1.5,
+                                            borderRadius: "12px",
+                                            boxShadow: "0 8px 24px rgba(0,0,0,0.12)",
+                                            border: "1px solid rgba(0,0,0,0.06)",
+                                            py: 0.5,
+                                        },
+                                    },
+                                }}
+                                sx={{ "& .MuiList-root": { py: 0 } }}
+                            >
+                                <MenuItem
+                                    onClick={handleProfileClick}
+                                    sx={{
+                                        gap: 1.5,
+                                        py: 1.5,
+                                        px: 2,
+                                        fontSize: 14,
+                                        "&:hover": { backgroundColor: "rgba(67, 97, 238, 0.08)" },
+                                    }}
+                                >
+                                    <PersonOutlineIcon sx={{ fontSize: 20, color: "#4361ee" }} />
+                                    Profil
+                                </MenuItem>
+                                <MenuItem
+                                    onClick={handleLogoutClick}
+                                    sx={{
+                                        gap: 1.5,
+                                        py: 1.5,
+                                        px: 2,
+                                        fontSize: 14,
+                                        color: "#666",
+                                        "&:hover": { backgroundColor: "rgba(214, 32, 32, 0.08)" },
+                                    }}
+                                >
+                                    <LogoutIcon sx={{ fontSize: 20, color: "#666" }} />
+                                    Çıkış yap
+                                </MenuItem>
+                            </Menu>
 
                             {/* Mobile: hamburger */}
                             <IconButton
@@ -246,7 +326,7 @@ export const Header: React.FC<HeaderProps> = ({
                             <Box sx={{ display: { xs: "none", md: "flex" }, gap: 3, mr: "150px" }}>
                                 <Button
                                     component={Link}
-                                    href="/kayit"
+                                    href="/register"
                                     width="auto"
                                     height={36}
                                     padding="6px 20px"
@@ -259,7 +339,7 @@ export const Header: React.FC<HeaderProps> = ({
                                 </Button>
                                 <Button
                                     component={Link}
-                                    href="/giris"
+                                    href="/login"
                                     width="auto"
                                     height={36}
                                     padding="6px 20px"
@@ -318,13 +398,23 @@ export const Header: React.FC<HeaderProps> = ({
                                 {user.title}
                             </Typography>
                         </Box>
+                        <Button component={Link} href="/profile" sx={{ width: "100%" }}>
+                            Profil
+                        </Button>
+                        <MuiButton
+                            variant="outlined"
+                            onClick={handleLogoutClick}
+                            sx={{ width: "100%" }}
+                        >
+                            Çıkış yap
+                        </MuiButton>
                     </Box>
                 ) : (
                     <Box sx={{ display: "flex", flexDirection: "column", gap: 1.5 }}>
-                        <Button component={Link} href="/kayit" sx={{ width: "100%" }}>
+                        <Button component={Link} href="/register" sx={{ width: "100%" }}>
                             {t("header.signUp")}
                         </Button>
-                        <Button component={Link} href="/giris" sx={{ width: "100%" }}>
+                        <Button component={Link} href="/login" sx={{ width: "100%" }}>
                             {t("header.signIn")}
                         </Button>
                     </Box>
