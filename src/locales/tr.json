@@ -76,6 +76,14 @@
   },
   "profile": {
     "downloadCv": "Find CV'mi İndir",
-    "editProfile": "Profili Düzenle"
+    "editProfile": "Profili Düzenle",
+    "website": "Web Sitesi",
+    "edit": "Düzenle",
+    "documents" : "Dokümanlar",
+    "addAnotherDocument" : "Başka bir doküman ekle",
+    "removeDocument": "Dokümanı kaldır",
+    "savedSearches" : "Kaydedilen Aramalarım",
+    "myApplications" : "Başvurularım",
+    "seeAll" : "Tümünü Gör"
   }
 }

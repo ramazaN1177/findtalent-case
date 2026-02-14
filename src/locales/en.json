@@ -76,6 +76,14 @@
   },
   "profile": {
     "downloadCv": "Download my Find CV",
-    "editProfile": "Edit Profile"
+    "editProfile": "Edit Profile",
+    "website": "Website",
+    "edit": "Edit",
+    "documents" : "Documents",
+    "addAnotherDocument" : "Add another document",
+    "removeDocument": "Remove document",
+    "savedSearches" : "My Saved Searches",
+    "myApplications" : "My Applications",
+    "seeAll" : "See All"
   }
 }
