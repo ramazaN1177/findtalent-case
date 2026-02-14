@@ -22,6 +22,9 @@ export type User = {
     profileContent: { id: number; title: string; content: string }[];
     experience?: unknown[];
     education?: unknown[];
+    certificates?: { id: number; name: string; description: string; date: string }[];
+    skills?: { id: number; name: string; experience: string }[];
+    hobbies?: { id: number; name: string }[];
   };
 
   type AuthContextType = {

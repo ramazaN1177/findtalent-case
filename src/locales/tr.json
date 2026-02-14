@@ -84,6 +84,13 @@
     "removeDocument": "Dokümanı kaldır",
     "savedSearches" : "Kaydedilen Aramalarım",
     "myApplications" : "Başvurularım",
-    "seeAll" : "Tümünü Gör"
+    "seeAll" : "Tümünü Gör",
+    "profile" : "Profil",
+    "professionalPerspective" : "Profesyonel Bakış",
+    "experience" : "Deneyim",
+    "education" : "Eğitim",
+    "certificates" : "Sertifikalar",
+    "skills" : "Yetenekler",
+    "interests" : "İlgi Alanları"
   }
 }

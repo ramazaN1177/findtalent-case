@@ -29,12 +29,30 @@
   "featuredJobs": {
     "title": "Featured job listings",
     "jobs": [
-      { "jobTitle": "IT Manager", "companyName": "Bosch" },
-      { "jobTitle": "Front-end Developer", "companyName": "Aktif Bank HQ" },
-      { "jobTitle": "Back-end Developer", "companyName": "Akbank HQ" },
-      { "jobTitle": ".net Developer", "companyName": "Arçelik" },
-      { "jobTitle": "Junior .net Developer", "companyName": "Allianz" },
-      { "jobTitle": "Sales Manager", "companyName": "Bezmialem University" }
+      {
+        "jobTitle": "IT Manager",
+        "companyName": "Bosch"
+      },
+      {
+        "jobTitle": "Front-end Developer",
+        "companyName": "Aktif Bank HQ"
+      },
+      {
+        "jobTitle": "Back-end Developer",
+        "companyName": "Akbank HQ"
+      },
+      {
+        "jobTitle": ".net Developer",
+        "companyName": "Arçelik"
+      },
+      {
+        "jobTitle": "Junior .net Developer",
+        "companyName": "Allianz"
+      },
+      {
+        "jobTitle": "Sales Manager",
+        "companyName": "Bezmialem University"
+      }
     ]
   },
   "home": {
@@ -63,7 +81,11 @@
       "IT Officer",
       "Mid Level .net Developer"
     ],
-    "locations": ["Istanbul", "Izmir", "Ankara"],
+    "locations": [
+      "Istanbul",
+      "Izmir",
+      "Ankara"
+    ],
     "companies": [
       "Koç System",
       "Aktif Bank",
@@ -79,11 +101,18 @@
     "editProfile": "Edit Profile",
     "website": "Website",
     "edit": "Edit",
-    "documents" : "Documents",
-    "addAnotherDocument" : "Add another document",
+    "documents": "Documents",
+    "addAnotherDocument": "Add another document",
     "removeDocument": "Remove document",
-    "savedSearches" : "My Saved Searches",
-    "myApplications" : "My Applications",
-    "seeAll" : "See All"
+    "savedSearches": "My Saved Searches",
+    "myApplications": "My Applications",
+    "seeAll": "See All",
+    "profile": "Profile",
+    "professionalPerspective": "Professional Perspective",
+    "experience": "Experience",
+    "education": "Education",
+    "certificates": "Certificates",
+    "skills": "Skills",
+    "interests": "Interests"
   }
 }

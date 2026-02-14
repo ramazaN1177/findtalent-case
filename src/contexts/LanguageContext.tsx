@@ -85,7 +85,7 @@ export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({ chil
 
   return (
     <LanguageContext.Provider value={{ locale, setLocale, t, tArray }}>
-      {children}
+      {messages !== null ? children : null}
     </LanguageContext.Provider>
   );
 };

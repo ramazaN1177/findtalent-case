@@ -9,6 +9,9 @@ import { Button } from "@/components/common/Button/Button";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useAuth } from "@/contexts/AuthContext";
 import { ProfileSidebar } from "@/components/profile/ProfileSidebar/ProfileSidebar";
+import { SkillsSection } from "@/components/profile/SkillsSection/SkillsSection";
+
+const PROFILE_SIDEBAR_GAP = "98px";
 
 export default function Profile() {
     const { t } = useLanguage();
@@ -97,10 +100,29 @@ export default function Profile() {
                     mx: "auto",
                     px: { xs: 2, md: "150px" },
                 }}>
-                    <Box sx={{ margin: "0 20px", py: { xs: 2, md: 3 } }}>
-                        <ProfileSidebar />
+                    <Box
+                        sx={{
+                            display: "flex",
+                            flexDirection: { xs: "column", md: "row" },
+                            alignItems: { xs: "stretch", md: "flex-start" },
+                            gap: PROFILE_SIDEBAR_GAP,
+                            margin: "0 20px",
+                            py: { xs: 2, md: 3 },
+                        }}
+                    >
+                        <Box sx={{ width: 260, flexShrink: 0 }}>
+                            <ProfileSidebar />
+                        </Box>
+                        <Box
+                            sx={{
+                                flex: 1,
+                                minWidth: 0,
+                                pr: { xs: 2, md: "150px" },
+                            }}
+                        >
+                            <SkillsSection />
+                        </Box>
                     </Box>
-
                 </Box>
 
             </MainContentWithDecor>
