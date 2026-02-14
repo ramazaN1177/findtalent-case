@@ -1,0 +1,77 @@
+{
+  "footer": {
+    "privacyCenter": "Privacy Center",
+    "cookies": "Cookies",
+    "privacy": "Privacy",
+    "terms": "Terms",
+    "workAtFinddeveloper": "Work at Finddeveloper",
+    "aboutUs": "About Us",
+    "helpCenter": "Help Center",
+    "language": "English",
+    "iskurAlt": "İŞKUR Private Employment Agency",
+    "iskurText": "Finddeveloper.net Inc. operates as a Private Employment Agency between 31/08/2018-30/08/2021, pursuant to the decision of Turkish Employment Agency dated 16.07.2018, number 26124, with document number 170. In accordance with Law No. 4904, no fee will be charged from job seekers and no benefits will be provided. You can contact the following phone numbers for your complaints. Click for other cities. Turkish Employment Agency Istanbul Provincial Directorate: 0212 555 55 55 Turkish Employment Agency Istanbul Labor and Employment Agency Ümraniye Service Center:\n0216 523 90 26"
+  },
+  "header": {
+    "signUp": "Sign Up",
+    "signIn": "Sign In",
+    "openMenu": "Open menu",
+    "close": "Close"
+  },
+  "hero": {
+    "searchJobs": "Search Jobs",
+    "placeholder": "Job, Company, Keyword",
+    "detailedSearch": "Detailed Search",
+    "searchAlt": "Search"
+  },
+  "popularSearches": {
+    "title": "Popular searches"
+  },
+  "featuredJobs": {
+    "title": "Featured job listings",
+    "jobs": [
+      { "jobTitle": "IT Manager", "companyName": "Bosch" },
+      { "jobTitle": "Front-end Developer", "companyName": "Aktif Bank HQ" },
+      { "jobTitle": "Back-end Developer", "companyName": "Akbank HQ" },
+      { "jobTitle": ".net Developer", "companyName": "Arçelik" },
+      { "jobTitle": "Junior .net Developer", "companyName": "Allianz" },
+      { "jobTitle": "Sales Manager", "companyName": "Bezmialem University" }
+    ]
+  },
+  "home": {
+    "jobListingsForYou": "Job listings for you",
+    "popularCategories": "Popular Categories",
+    "popularTitles": "Popular Titles",
+    "popularLocations": "Popular Locations",
+    "popularCompanyListings": "Popular Company Listings",
+    "categories": [
+      "Software Development",
+      "Mobile App Development",
+      "User Experience",
+      "Usability",
+      "Project Management",
+      "Business Analysis",
+      "Reporting Specialist",
+      "Test Specialist",
+      "Software Architect",
+      "Interface Design"
+    ],
+    "titles": [
+      "Senior .net Developer",
+      "Senior Mobile Developer",
+      "User Experience Designer",
+      "Usability Specialist",
+      "IT Officer",
+      "Mid Level .net Developer"
+    ],
+    "locations": ["Istanbul", "Izmir", "Ankara"],
+    "companies": [
+      "Koç System",
+      "Aktif Bank",
+      "Akbank",
+      "Turkish Airlines",
+      "Brisa",
+      "Vakıfbank",
+      "Neyasis Tech."
+    ]
+  }
+}

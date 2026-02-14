@@ -1,0 +1,56 @@
+[
+  {
+    "jobTitle": "IT Müdürü",
+    "companyName": "Bosch",
+    "logoPaths": [
+      "/1280-px-bsh-bosch-und-siemens-hausgera-te-logo-svg-copy.png",
+      "/1280-px-bsh-bosch-und-siemens-hausgera-te-logo-svg-copy@2x.png",
+      "/1280-px-bsh-bosch-und-siemens-hausgera-te-logo-svg-copy@3x.png"
+    ]
+  },
+  {
+    "jobTitle": "Front-end Developer",
+    "companyName": "Aktif Bank Genel Müdürlüğü",
+    "logoPaths": [
+      "/aktifbank-logo.png",
+      "/aktifbank-logo@2x.png",
+      "/aktifbank-logo@3x.png"
+    ]
+  },
+  {
+    "jobTitle": "Back-end Developer",
+    "companyName": "Akbank Bank Genel Müdürlüğü",
+    "logoPaths": [
+      "/1280-px-akbank-logo-svg.png",
+      "/1280-px-akbank-logo-svg@2x.png",
+      "/1280-px-akbank-logo-svg@3x.png"
+    ]
+  },
+  {
+    "jobTitle": ".net Developer",
+    "companyName": "Arçelik",
+    "logoPaths": [
+      "/arc-elik.png",
+      "/arc-elik@2x.png",
+      "/arc-elik@3x.png"
+    ]
+  },
+  {
+    "jobTitle": "Junior .net Developer",
+    "companyName": "Allianz",
+    "logoPaths": [
+      "/logo-allianz.png",
+      "/logo-allianz@2x.png",
+      "/logo-allianz@3x.png"
+    ]
+  },
+  {
+    "jobTitle": "Sales Manager",
+    "companyName": "Bezmialem Vakıf Üniversitesi",
+    "logoPaths": [
+      "/bezmia-lem-vak-f-u-niversitesi-logosu.png",
+      "/bezmia-lem-vak-f-u-niversitesi-logosu@2x.png",
+      "/bezmia-lem-vak-f-u-niversitesi-logosu@3x.png"
+    ]
+  }
+]

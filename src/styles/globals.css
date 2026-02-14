@@ -40,3 +40,12 @@ a {
     color-scheme: dark;
   }
 }
+
+@keyframes scrollRight {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-25%);
+  }
+}

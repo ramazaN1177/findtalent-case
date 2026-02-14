@@ -1,0 +1,77 @@
+{
+  "footer": {
+    "privacyCenter": "Gizlilik Merkezi",
+    "cookies": "Çerezler",
+    "privacy": "Gizlilik",
+    "terms": "Şartlar",
+    "workAtFinddeveloper": "Finddeveloper'da Çalışmak",
+    "aboutUs": "Hakkımızda",
+    "helpCenter": "Yardım Merkezi",
+    "language": "Türkçe",
+    "iskurAlt": "İŞKUR Özel İstihdam Bürosu",
+    "iskurText": "Finddeveloper.net A.Ş. Özel İstihdam Bürosu Olarak 31/08/2018-30/08/2021 tarihleri arasında faaliyette bulunmak üzere, Türkiye İş Kurumu tarafından 16.07.2018 tarih ve 26124 sayılı karar uyarınca 170 nolu belge ile faaliyet göstermektedir. 4904 sayılı kanun uyarınca iş arayanlardan ücret alınmayacak ve menfaat temin edilmeyecektir. Şikayetleriniz için aşağıdaki telefon numaralarına başvurabilirsiniz. Diğer iller için tıklayın. Türkiye İş Kurumu İstanbul İl Müdürlüğü: 0212 555 55 55 Türkiye İş Kurumu İstanbul Çalışma ve İş Kurumu Ümraniye Hizmet Merkezi :\n0216 523 90 26"
+  },
+  "header": {
+    "signUp": "Kayıt Ol",
+    "signIn": "Giriş Yap",
+    "openMenu": "Menüyü aç",
+    "close": "Kapat"
+  },
+  "hero": {
+    "searchJobs": "İş Ara",
+    "placeholder": "İş, Şirket, Anahtar Kelime",
+    "detailedSearch": "Detaylı Arama",
+    "searchAlt": "Ara"
+  },
+  "popularSearches": {
+    "title": "Popüler aramalar"
+  },
+  "featuredJobs": {
+    "title": "Öne çıkan iş ilanları",
+    "jobs": [
+      { "jobTitle": "IT Müdürü", "companyName": "Bosch" },
+      { "jobTitle": "Front-end Developer", "companyName": "Aktif Bank Genel Müdürlüğü" },
+      { "jobTitle": "Back-end Developer", "companyName": "Akbank Bank Genel Müdürlüğü" },
+      { "jobTitle": ".net Developer", "companyName": "Arçelik" },
+      { "jobTitle": "Junior .net Developer", "companyName": "Allianz" },
+      { "jobTitle": "Sales Manager", "companyName": "Bezmialem Vakıf Üniversitesi" }
+    ]
+  },
+  "home": {
+    "jobListingsForYou": "Sizin için iş ilanları",
+    "popularCategories": "Popüler Kategoriler",
+    "popularTitles": "Popüler Başlıklar",
+    "popularLocations": "Popüler Lokasyonlar",
+    "popularCompanyListings": "Popüler Şirket İlanları",
+    "categories": [
+      "Yazılım Geliştirme",
+      "Mobil Uygulama Geliştirme",
+      "Kullanıcı Deneyimi",
+      "Kullanılabilirlik",
+      "Proje Yönetimi",
+      "İş Analizi",
+      "Raporlama Uzmanı",
+      "Test Uzmanı",
+      "Yazılım Mimarı",
+      "Arayüz Tasarımı"
+    ],
+    "titles": [
+      "Senior .net Developer",
+      "Senior Mobile Developer",
+      "Kullanıcı Deneyimi Tasarımcısı",
+      "Kullanılabilirlik Uzmanı",
+      "IT Sorumlusu",
+      "Mid Level .net Developer"
+    ],
+    "locations": ["İstanbul", "İzmir", "Ankara"],
+    "companies": [
+      "Koç Sistem",
+      "Aktif Bank",
+      "Akbank",
+      "Türk Hava Yolları",
+      "Brisa",
+      "Vakıfbank",
+      "Neyasis Tech."
+    ]
+  }
+}
