@@ -73,5 +73,9 @@
       "Vakıfbank",
       "Neyasis Tech."
     ]
+  },
+  "profile": {
+    "downloadCv": "Download my Find CV",
+    "editProfile": "Edit Profile"
   }
 }

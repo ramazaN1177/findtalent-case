@@ -8,6 +8,7 @@ import { SearchBar } from "@/components/common/SearchBar/SearchBar";
 import { Button } from "@/components/common/Button/Button";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useAuth } from "@/contexts/AuthContext";
+import { ProfileSidebar } from "@/components/profile/ProfileSidebar/ProfileSidebar";
 
 export default function Profile() {
     const { t } = useLanguage();
@@ -69,7 +70,7 @@ export default function Profile() {
                                 borderRadius: "clamp(18px, 2vw, 28px)",
                             }}
                         />
-                        {/* Buton + Detaylı Arama */}
+
                         <Box sx={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
                             <Button
                                 onClick={handleSearch}
@@ -90,66 +91,18 @@ export default function Profile() {
                         </Box>
                     </Box>
                 </Box>
-                <Box
-                    sx={{
-                        width: "100%",
-                        maxWidth: { xs: 1200, md: "none" },
-                        mx: "auto",
-                        px: { xs: 2, md: "150px" },
-                    }}
-                >
+                <Box sx={{
+                    width: "100%",
+                    maxWidth: { xs: 1200, md: "none" },
+                    mx: "auto",
+                    px: { xs: 2, md: "150px" },
+                }}>
                     <Box sx={{ margin: "0 20px", py: { xs: 2, md: 3 } }}>
-                        <Box
-                            sx={{
-                                display: "flex",
-                                flexDirection: "row",
-                                alignItems: "center", // veya "flex-start"
-                                gap: 98,
-                                width: "100%",
-                            }}
-                        >
-                            <Box sx={{ width: 260, flexShrink: 0 }}>
-                                <Box
-                                    sx={{
-                                        width: 260,
-                                        height: 260,
-                                        backgroundColor: "#eff1f6",
-                                        borderRadius: "12px",
-                                        border: "1px solid #4361ee",
-                                        display: "flex",
-                                        justifyContent: "center",
-                                        alignItems: "center",
-                                        overflow: "hidden",
-                                    }}
-                                >
-                                    <Box component="img" src={user.avatar} alt={`${user.firstname} ${user.lastname}`} sx={{ width: "100%", height: "100%", objectFit: "cover" }} />
-                                </Box>
-                            </Box>
-                            <Box sx={{ flex: 1, minWidth: 0 }}>
-                                <Typography sx={{ fontSize: 20, fontWeight: 700, color: "#333", mb: 1 }}>
-                                    {user.firstname} {user.lastname}
-                                </Typography>
-                                <Typography sx={{ fontSize: 14, color: "#666", mb: 2 }}>{user.title}</Typography>
-                                <Typography sx={{ fontSize: 13, color: "#666", mb: 1 }}>{user.company} · {user.location}</Typography>
-                                <Typography sx={{ fontSize: 13, color: "#666", mb: 2 }}>{user.email} · {user.phone}</Typography>
-                                {user.profileContent?.map((block) => (
-                                    <Box key={block.id} sx={{ mb: 2 }}>
-                                        <Typography sx={{ fontSize: 16, fontWeight: 600, color: "#333", mb: 0.5 }}>
-                                            {block.title}
-                                        </Typography>
-                                        <Typography sx={{ fontSize: 14, color: "#555", lineHeight: 1.6, whiteSpace: "pre-wrap" }}>
-                                            {block.content}
-                                        </Typography>
-                                    </Box>
-                                ))}
-                            </Box>
-                        </Box>
-
+                        <ProfileSidebar />
                     </Box>
 
-
-
                 </Box>
+
             </MainContentWithDecor>
 
             <Footer />
