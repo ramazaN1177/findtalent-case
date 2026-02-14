@@ -166,12 +166,15 @@ export const Header: React.FC<HeaderProps> = ({
                         alignItems: "center",
                         width: "100%",
                         height: "100%",
-                    pl: { xs: 2, md: showDecor ? "150px" : 4 },
-                    pr: { xs: 2, md: showDecor ? "116px" : 4 },
+                        pl: { xs: 2, md: showDecor ? "150px" : 4 },
+                        pr: { xs: 2, md: showDecor ? "116px" : 4 },
                         py: 1,
                     }}
                 >
-                    {/* Logo */}
+                    {/* Spacer: sadece mobil ve tablette — logo ortalamak için */}
+                    <Box sx={{ display: { xs: "block", sm: "block", md: "none" }, flex: 1, minWidth: 0 }} />
+
+                    {/* Logo — mobil ve tablette ortada, masaüstünde solda */}
                     {showLogo && (
                         <Box
                             component={Link}
@@ -179,10 +182,10 @@ export const Header: React.FC<HeaderProps> = ({
                             sx={{
                                 display: "flex",
                                 alignItems: "center",
-                                justifyContent: { xs: "center", md: "flex-start" },
+                                justifyContent: { xs: "center", sm: "center", md: "flex-start" },
                                 textDecoration: "none",
-                                flexShrink: { md: 0 },
-                                flex: { xs: 1, md: "none" },
+                                flexShrink: 0,
+                                flex: { xs: "none", sm: "none", md: "none" },
                             }}
                         >
                             <Box
@@ -200,8 +203,8 @@ export const Header: React.FC<HeaderProps> = ({
                         </Box>
                     )}
 
-                    <Box sx={{ flex: 1 }} />
-
+                    {/* Right side: profile / auth — mobil/tablette flex:1 ile logo ortada kalır */}
+                    <Box sx={{ display: "flex", justifyContent: "flex-end", flex: { xs: 1, sm: 1, md: 1 }, minWidth: 0 }}>
                     {user ? (
                         <>
                             {/* Desktop: Profil bilgisi — tıklanınca dropdown; hero'da (transparent) biraz solda */}
@@ -365,6 +368,7 @@ export const Header: React.FC<HeaderProps> = ({
                             </IconButton>
                         </>
                     )}
+                    </Box>
                 </Box>
             </Box>
 

@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
+import { useRouter } from "next/router";
 import { Box, Link, Typography, Menu, MenuItem } from "@mui/material";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import { useLanguage } from "@/contexts/LanguageContext";
@@ -21,8 +22,10 @@ const divider = (
 );
 
 export const Footer: React.FC = () => {
+    const router = useRouter();
     const { locale, setLocale, t } = useLanguage();
     const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
+    const isProfilePage = router.pathname === "/profile";
 
     const handleLanguageClick = (event: React.MouseEvent<HTMLElement>) => {
         setAnchorEl(event.currentTarget);
@@ -145,52 +148,54 @@ export const Footer: React.FC = () => {
                         </MenuItem>
                     </Menu>
 
-                    <Box
-                        sx={{
-                            display: "flex",
-                            flexDirection: { xs: "column", sm: "row" },
-                            alignItems: { xs: "center", sm: "flex-start" },
-                            gap: 2,
-                            mt: { xs: 2, md: 3 },
-                            pt: { xs: 2, md: 3 },
-                            borderTop: "1px solid rgba(255,255,255,0.2)",
-                        }}
-                    >
+                    {!isProfilePage && (
                         <Box
-                            component="img"
-                            src="/iskur-logo@3x.png"
-                            alt={t("footer.iskurAlt")}
                             sx={{
-                                width: { xs: 64, md: 80 },
-                                height: { xs: 64, md: 80 },
-                                flexShrink: 0,
-                                objectFit: "contain",
-                            }}
-                        />
-                        <Typography
-                            component="span"
-                            sx={{
-                                width: { xs: "100%", sm: 450 },
-                                maxWidth: "100%",
-                                margin: { xs: "0", sm: "0 0 0 16px" },
-                                fontSize: { xs: "10px", sm: "8px" },
-                                fontWeight: "normal",
-                                fontStretch: "normal",
-                                fontStyle: "normal",
-                                lineHeight: 1.75,
-                                letterSpacing: "normal",
-                                color: "#fff",
-                                textAlign: { xs: "center", sm: "left" },
+                                display: "flex",
+                                flexDirection: { xs: "column", sm: "row" },
+                                alignItems: { xs: "center", sm: "flex-start" },
+                                gap: 2,
+                                mt: { xs: 2, md: 3 },
+                                pt: { xs: 2, md: 3 },
+                                borderTop: "1px solid rgba(255,255,255,0.2)",
                             }}
                         >
-                            {t("footer.iskurText").split("\n").map((line, i) => (
-                                <React.Fragment key={i}>
-                                    {line}
-                                    {i === 0 && <br />}
-                                </React.Fragment>
-                            ))}
-                        </Typography>
-                    </Box>
+                            <Box
+                                component="img"
+                                src="/iskur-logo@3x.png"
+                                alt={t("footer.iskurAlt")}
+                                sx={{
+                                    width: { xs: 64, md: 80 },
+                                    height: { xs: 64, md: 80 },
+                                    flexShrink: 0,
+                                    objectFit: "contain",
+                                }}
+                            />
+                            <Typography
+                                component="span"
+                                sx={{
+                                    width: { xs: "100%", sm: 450 },
+                                    maxWidth: "100%",
+                                    margin: { xs: "0", sm: "0 0 0 16px" },
+                                    fontSize: { xs: "10px", sm: "8px" },
+                                    fontWeight: "normal",
+                                    fontStretch: "normal",
+                                    fontStyle: "normal",
+                                    lineHeight: 1.75,
+                                    letterSpacing: "normal",
+                                    color: "#fff",
+                                    textAlign: { xs: "center", sm: "left" },
+                                }}
+                            >
+                                {t("footer.iskurText").split("\n").map((line, i) => (
+                                    <React.Fragment key={i}>
+                                        {line}
+                                        {i === 0 && <br />}
+                                    </React.Fragment>
+                                ))}
+                            </Typography>
+                        </Box>
+                    )}
                 </Box>
             </Box>
         </Box>

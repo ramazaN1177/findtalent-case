@@ -7,8 +7,8 @@ export const SkillsSection = () => {
   const { t } = useLanguage();
   const { user } = useAuth();
   return (
-    <Box>
-      <Box sx={{ width: "100%", height: "100%" }}>
+    <Box sx={{ width: "100%", minWidth: 0, maxWidth: "100%", overflow: "hidden" }}>
+      <Box sx={{ width: "100%", height: "100%", minWidth: 0 }}>
         <Typography variant="h6" sx={{ fontSize: "32px", color: "#5b6987" }}>{t("profile.profile")}</Typography>
         <Box>
           <Box sx={{ margin: "20px 0", width: "100%" }}>
@@ -18,9 +18,11 @@ export const SkillsSection = () => {
                 flexDirection: "row",
                 justifyContent: "space-between",
                 alignItems: "center",
+                flexWrap: "wrap",
+                gap: 1,
               }}
             >
-              <Typography variant="h6" sx={{ fontSize: "24px", color: "#4361ee" }}>
+              <Typography variant="h6" sx={{ fontSize: "24px", color: "#4361ee", minWidth: 0 }}>
                 {t("profile.professionalPerspective")}
               </Typography>
               <Link
@@ -47,7 +49,7 @@ export const SkillsSection = () => {
               }}
             />
 
-            <Box>
+            <Box sx={{ minWidth: 0, overflow: "hidden" }}>
               <Typography
                 component="div"
                 sx={{
@@ -55,6 +57,7 @@ export const SkillsSection = () => {
                   fontSize: "16px",
                   color: "#6b7998",
                   whiteSpace: "pre-wrap",
+                  wordBreak: "break-word",
                 }}
               >
                 {user?.profileContent?.[0]?.content ?? ""}
@@ -65,16 +68,18 @@ export const SkillsSection = () => {
 
           </Box>
           {/* Deneyim */}
-          <Box sx={{ margin: "30px 0", width: "100%" }}>
+          <Box sx={{ margin: "30px 0", width: "100%", minWidth: 0 }}>
             <Box
               sx={{
                 display: "flex",
                 flexDirection: "row",
                 justifyContent: "space-between",
                 alignItems: "center",
+                flexWrap: "wrap",
+                gap: 1,
               }}
             >
-              <Typography variant="h6" sx={{ fontSize: "24px", color: "#5b6987" }}>
+              <Typography variant="h6" sx={{ fontSize: "24px", color: "#5b6987", minWidth: 0 }}>
                 {t("profile.experience")}
               </Typography>
               <Link
@@ -133,16 +138,18 @@ export const SkillsSection = () => {
             </Box>
           </Box>
           {/* Egitim */}
-          <Box sx={{ margin: "30px 0", width: "100%" }}>
+          <Box sx={{ margin: "30px 0", width: "100%", minWidth: 0 }}>
             <Box
               sx={{
                 display: "flex",
                 flexDirection: "row",
                 justifyContent: "space-between",
                 alignItems: "center",
+                flexWrap: "wrap",
+                gap: 1,
               }}
             >
-              <Typography variant="h6" sx={{ fontSize: "24px", color: "#5b6987" }}>
+              <Typography variant="h6" sx={{ fontSize: "24px", color: "#5b6987", minWidth: 0 }}>
                 {t("profile.education")}
               </Typography>
               <Link
@@ -202,13 +209,15 @@ export const SkillsSection = () => {
             </Box>
           </Box>
           {/* Sertifikalar */}
-          <Box sx={{ margin: "30px 0", width: "100%" }}>
+          <Box sx={{ margin: "30px 0", width: "100%", minWidth: 0 }}>
             <Box
               sx={{
                 display: "flex",
                 flexDirection: "row",
                 justifyContent: "space-between",
                 alignItems: "center",
+                flexWrap: "wrap",
+                gap: 1,
               }}
             >
               <Typography variant="h6" sx={{ fontSize: "24px", color: "#5b6987" }}>
@@ -278,8 +287,8 @@ export const SkillsSection = () => {
             <Box
               sx={{
                 display: "grid",
-                gridTemplateColumns: "1fr 1fr",
-                columnGap: "254px",
+                gridTemplateColumns: { xs: "1fr", sm: "1fr 1fr" },
+                columnGap: { xs: 0, sm: 2, md: "254px" },
                 rowGap: "20px",
               }}
             >
@@ -291,7 +300,7 @@ export const SkillsSection = () => {
                     alt=""
                     sx={{ width: 14, height: 14, flexShrink: 0 }}
                   />
-                  <Typography sx={{ fontFamily: '"Nunito", sans-serif', fontSize: "18px", color: "#6b7998" }}>
+                  <Typography sx={{ fontFamily: '"Nunito", sans-serif', fontSize: "18px", color: "#6b7998", minWidth: 0, wordBreak: "break-word" }}>
                     {skill.name} ({skill.experience})
                   </Typography>
                 </Box>
@@ -299,16 +308,18 @@ export const SkillsSection = () => {
             </Box>
           </Box>
           {/* Ilgi Alanlari */}
-          <Box sx={{ margin: "30px 0", width: "100%" }}>
+          <Box sx={{ margin: "30px 0", width: "100%", minWidth: 0 }}>
             <Box
               sx={{
                 display: "flex",
                 flexDirection: "row",
                 justifyContent: "space-between",
                 alignItems: "center",
+                flexWrap: "wrap",
+                gap: 1,
               }}
             >
-              <Typography variant="h6" sx={{ fontSize: "24px", color: "#5b6987" }}>{t("profile.skills")}</Typography>
+              <Typography variant="h6" sx={{ fontSize: "24px", color: "#5b6987", minWidth: 0 }}>{t("profile.skills")}</Typography>
             </Box>
             <Box
               sx={{
@@ -321,8 +332,8 @@ export const SkillsSection = () => {
             <Box
               sx={{
                 display: "grid",
-                gridTemplateColumns: "1fr 1fr",
-                columnGap: "254px",
+                gridTemplateColumns: { xs: "1fr", sm: "1fr 1fr" },
+                columnGap: { xs: 0, sm: 2, md: "254px" },
                 rowGap: "20px",
               }}
             >
@@ -334,7 +345,7 @@ export const SkillsSection = () => {
                     alt=""
                     sx={{ width: 14, height: 14, flexShrink: 0 }}
                   />
-                  <Typography sx={{ fontFamily: '"Nunito", sans-serif', fontSize: "18px", color: "#6b7998" }}>
+                  <Typography sx={{ fontFamily: '"Nunito", sans-serif', fontSize: "18px", color: "#6b7998", minWidth: 0, wordBreak: "break-word" }}>
                     {hobby.name}
                   </Typography>
                 </Box>

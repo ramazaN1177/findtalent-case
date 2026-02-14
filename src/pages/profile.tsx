@@ -54,8 +54,9 @@ export default function Profile() {
                             justifyContent: "center",
                             gap: "clamp(8px, 1vw, 15px)",
                             width: "100%",
-                            maxWidth: 734,
+                            maxWidth: { xs: "100%", sm: "100%", md: 734 },
                             mx: "auto",
+                            px: { xs: 2, sm: 2, md: 0 },
                         }}
                     >
                         <SearchBar
@@ -67,8 +68,9 @@ export default function Profile() {
                             borderRadius={28}
                             padding="0 20px"
                             sx={{
-                                minWidth: 798,
-                                flex: { sm: 1 },
+                                minWidth: { xs: 0, sm: 0, md: 798 },
+                                maxWidth: "100%",
+                                flex: { sm: 1, md: 1 },
                                 height: "clamp(36px, 4vw, 56px)",
                                 borderRadius: "clamp(18px, 2vw, 28px)",
                             }}
@@ -98,28 +100,23 @@ export default function Profile() {
                     width: "100%",
                     maxWidth: { xs: 1200, md: "none" },
                     mx: "auto",
-                    px: { xs: 2, md: "150px" },
+                    px: { xs: 1.5, sm: 2, md: "150px" },
                 }}>
                     <Box
                         sx={{
                             display: "flex",
                             flexDirection: { xs: "column", md: "row" },
-                            alignItems: { xs: "stretch", md: "flex-start" },
+                            alignItems: { xs: "center", md: "flex-start" },
+                            justifyContent: { xs: "center", md: "flex-start" },
                             gap: PROFILE_SIDEBAR_GAP,
-                            margin: "0 20px",
+                            margin: { xs: "0 8px", sm: "0 20px", md: "0 20px" },
                             py: { xs: 2, md: 3 },
                         }}
                     >
-                        <Box sx={{ width: 260, flexShrink: 0 }}>
+                        <Box sx={{ width: 260, flexShrink: 0, maxWidth: "100%" }}>
                             <ProfileSidebar />
                         </Box>
-                        <Box
-                            sx={{
-                                flex: 1,
-                                minWidth: 0,
-                                pr: { xs: 2, md: "150px" },
-                            }}
-                        >
+                        <Box sx={{ flex: 1, minWidth: 0 }}>
                             <SkillsSection />
                         </Box>
                     </Box>
