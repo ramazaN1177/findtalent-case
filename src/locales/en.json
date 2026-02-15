@@ -114,5 +114,12 @@
     "certificates": "Certificates",
     "skills": "Skills",
     "interests": "Interests"
+  },
+  "search": {
+    "filter": "Filter by",
+    "lastSearches": "Last Searches",
+    "jobPostingFound" : "Job posting found",
+    "informMe" : "Inform Me",
+    "isThisWhatYouMeant?" : "Is this what you meant?"
   }
 }

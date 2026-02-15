@@ -92,5 +92,13 @@
     "certificates" : "Sertifikalar",
     "skills" : "Yetenekler",
     "interests" : "İlgi Alanları"
+  },
+  "search": {
+    "filter": "Filtrele",
+    "lastSearches": "Son Aramalar",
+    "jobPostingFound" : "İş ilanı bulundu",
+    "informMe" : "Beni Bilgilendir",
+    "isThisWhatYouMeant?" : "Bunu mu demek istediniz?"
+
   }
 }
