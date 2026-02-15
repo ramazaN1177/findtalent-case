@@ -1,0 +1,282 @@
+[
+  {
+    "id": "1",
+    "jobName": ".NET Developer",
+    "companyName": "Quicken Loans",
+    "jobLocation": "İstanbul (Avrupa)",
+    "salaryRange": "8.000₺ - 12.000₺ / ay",
+    "jobDetail": {
+      "intro": "Promer Müşavirlik Mühendislik A.Ş. Bilgi Teknolojileri Direktörlüğü bünyesinde .NET Developer aranmaktadır.",
+      "jobDescription": {
+        "title": "İş Tanımı",
+        "items": [
+          ".NET tabanlı kurumsal uygulamaların geliştirilmesi",
+          "Mevcut projelerin bakım ve iyileştirilmesi",
+          "Yeni yazılım projelerinde aktif rol alınması"
+        ]
+      },
+      "qualifications": {
+        "title": "Genel Nitelikler",
+        "items": [
+          "Bilgisayar Mühendisliği veya ilgili bölümlerden mezun",
+          "En az 3 yıl .NET geliştirme deneyimi",
+          "C#, .NET Core, SQL Server bilgisi",
+          "Takım çalışmasına yatkın"
+        ]
+      }
+    }
+  },
+
+  {
+    "id": "2",
+    "jobName": "Mid Level .NET Developer",
+    "companyName": "IBM",
+    "jobLocation": "İstanbul (Anadolu)",
+    "salaryRange": "25.000₺ - 35.000₺ / ay",
+    "jobDetail": {
+      "intro": "IBM Türkiye ekibinde görev alacak Mid Level .NET Developer arıyoruz.",
+      "jobDescription": {
+        "title": "İş Tanımı",
+        "items": [
+          "Web tabanlı .NET uygulamaları geliştirmek",
+          "Agile/Scrum süreçlerine aktif katılım",
+          "Code review süreçlerinde yer almak"
+        ]
+      },
+      "qualifications": {
+        "title": "Aranan Nitelikler",
+        "items": [
+          "2–4 yıl .NET deneyimi",
+          "ASP.NET Core ve REST API bilgisi",
+          "SQL ve Entity Framework tecrübesi",
+          "İngilizce teknik doküman okuyabilme"
+        ]
+      }
+    }
+  },
+
+  {
+    "id": "3",
+    "jobName": ".NET Developer",
+    "companyName": "IntePros",
+    "jobLocation": "Ankara",
+    "salaryRange": "22.000₺ - 30.000₺ / ay",
+    "jobDetail": {
+      "intro": "IntePros bünyesinde kamu ve özel sektör projelerinde görev alacak .NET Developer aranmaktadır.",
+      "jobDescription": {
+        "title": "İş Tanımı",
+        "items": [
+          ".NET tabanlı iş uygulamaları geliştirmek",
+          "Veritabanı tasarımı ve optimizasyonu yapmak",
+          "Teknik dokümantasyon hazırlamak"
+        ]
+      },
+      "qualifications": {
+        "title": "Genel Nitelikler",
+        "items": [
+          "En az 2 yıl .NET tecrübesi",
+          "MS SQL Server bilgisi",
+          "HTML, CSS, JavaScript bilgisi",
+          "Analitik düşünme yeteneği"
+        ]
+      }
+    }
+  },
+
+  {
+    "id": "4",
+    "jobName": "Senior .NET Developer",
+    "companyName": "Millennium Group",
+    "jobLocation": "İzmir",
+    "salaryRange": "40.000₺ - 55.000₺ / ay",
+    "jobDetail": {
+      "intro": "Millennium Group İzmir ofisi için Senior .NET Developer arıyoruz.",
+      "jobDescription": {
+        "title": "İş Tanımı",
+        "items": [
+          "Kurumsal ölçekli projelerin mimarisini tasarlamak",
+          "Junior geliştiricilere mentorluk yapmak",
+          "Performans ve güvenlik optimizasyonları"
+        ]
+      },
+      "qualifications": {
+        "title": "Aranan Nitelikler",
+        "items": [
+          "5+ yıl .NET deneyimi",
+          "Microservice mimarisi bilgisi",
+          "Azure veya AWS deneyimi",
+          "Takım liderliği tecrübesi"
+        ]
+      }
+    }
+  },
+
+  {
+    "id": "5",
+    "jobName": "Senior .NET Developer",
+    "companyName": "System Soft",
+    "jobLocation": "İstanbul (Avrupa)",
+    "salaryRange": "45.000₺ - 60.000₺ / ay",
+    "jobDetail": {
+      "intro": "System Soft bünyesinde yüksek trafikli projelerde görev alacak Senior .NET Developer arıyoruz.",
+      "jobDescription": {
+        "title": "İş Tanımı",
+        "items": [
+          "Dağıtık sistemler geliştirmek",
+          "Kod kalite standartlarını belirlemek",
+          "Teknik karar süreçlerini yönetmek"
+        ]
+      },
+      "qualifications": {
+        "title": "Genel Nitelikler",
+        "items": [
+          "6+ yıl .NET tecrübesi",
+          "Docker ve CI/CD bilgisi",
+          "Clean Code prensiplerine hakimiyet",
+          "İleri seviye problem çözme"
+        ]
+      }
+    }
+  },
+
+  {
+    "id": "6",
+    "jobName": "Junior .NET Developer",
+    "companyName": "TechSoft",
+    "jobLocation": "Bursa",
+    "salaryRange": "15.000₺ - 20.000₺ / ay",
+    "jobDetail": {
+      "intro": "Yazılım kariyerine başlamak isteyen Junior .NET Developer adayları arıyoruz.",
+      "jobDescription": {
+        "title": "İş Tanımı",
+        "items": [
+          "Kıdemli geliştiricilere destek olmak",
+          "Basit modüller geliştirmek",
+          "Kod standartlarını öğrenmek"
+        ]
+      }
+    }
+  },
+
+  {
+    "id": "7",
+    "jobName": ".NET Backend Developer",
+    "companyName": "Nova Yazılım",
+    "jobLocation": "Remote",
+    "salaryRange": "30.000₺ - 40.000₺ / ay",
+    "jobDetail": {
+      "intro": "Remote çalışabilecek .NET Backend Developer arıyoruz.",
+      "jobDescription": {
+        "title": "İş Tanımı",
+        "items": [
+          "RESTful API geliştirmek",
+          "Veri güvenliği ve performans iyileştirmeleri",
+          "Bulut tabanlı sistemlerle çalışmak"
+        ]
+      }
+    }
+  },
+
+  {
+    "id": "8",
+    "jobName": ".NET Full Stack Developer",
+    "companyName": "CodePeak",
+    "jobLocation": "İstanbul",
+    "salaryRange": "28.000₺ - 38.000₺ / ay"
+  },
+  {
+    "id": "9",
+    "jobName": ".NET Web Developer",
+    "companyName": "Webia",
+    "jobLocation": "Antalya",
+    "salaryRange": "24.000₺ - 32.000₺ / ay",
+    "jobDetail": {
+      "intro": "Webia bünyesinde web tabanlı projelerde görev alacak .NET Web Developer aranmaktadır.",
+      "jobDescription": {
+        "title": "İş Tanımı",
+        "items": [
+          "ASP.NET tabanlı web uygulamaları geliştirmek",
+          "Frontend ve backend ekipleriyle koordineli çalışmak",
+          "Mevcut projelerde bakım ve geliştirme yapmak",
+          "SEO ve performans odaklı iyileştirmeler yapmak"
+        ]
+      },
+      "qualifications": {
+        "title": "Aranan Nitelikler",
+        "items": [
+          "En az 2 yıl .NET Web geliştirme deneyimi",
+          "ASP.NET MVC veya Razor Pages bilgisi",
+          "HTML, CSS, JavaScript bilgisi",
+          "Responsive tasarım prensiplerine hakim",
+          "Temel SQL bilgisi"
+        ]
+      }
+    }
+  },
+  {
+    "id": "10",
+    "jobName": "Lead .NET Developer",
+    "companyName": "FinTechX",
+    "jobLocation": "İstanbul",
+    "salaryRange": "60.000₺ - 75.000₺ / ay",
+    "jobDetail": {
+      "intro": "FinTechX bünyesinde finansal yazılım projelerine liderlik edecek Lead .NET Developer arıyoruz.",
+      "jobDescription": {
+        "title": "İş Tanımı",
+        "items": [
+          "Yazılım mimarisini tasarlamak ve geliştirmek",
+          "Geliştirici ekibine teknik liderlik yapmak",
+          "Kod standartlarını ve best practice'leri belirlemek",
+          "Proje planlama ve teknik karar süreçlerinde aktif rol almak",
+          "Yüksek güvenlikli finansal sistemler geliştirmek"
+        ]
+      },
+      "qualifications": {
+        "title": "Aranan Nitelikler",
+        "items": [
+          "7+ yıl .NET geliştirme deneyimi",
+          "Ekip liderliği veya teknik liderlik tecrübesi",
+          "Microservice ve DDD bilgisi",
+          "CI/CD süreçlerine hakimiyet",
+          "FinTech veya finans projelerinde deneyim tercih sebebidir"
+        ]
+      }
+    }
+  },
+  {
+    "id": "11",
+    "jobName": ".NET Software Engineer",
+    "companyName": "DataWorks",
+    "jobLocation": "Remote",
+    "salaryRange": "35.000₺ - 45.000₺ / ay",
+    "jobDetail": {
+      "intro": "DataWorks için uzaktan çalışabilecek, ölçeklenebilir sistemler geliştirecek .NET Software Engineer arıyoruz.",
+      "jobDescription": {
+        "title": "İş Tanımı",
+        "items": [
+          "Yüksek trafikli backend servisleri geliştirmek",
+          "API performans ve güvenlik optimizasyonları yapmak",
+          "Veri odaklı uygulamalar geliştirmek",
+          "Cloud tabanlı mimarilerde görev almak"
+        ]
+      },
+      "qualifications": {
+        "title": "Genel Nitelikler",
+        "items": [
+          "3+ yıl .NET / .NET Core deneyimi",
+          "REST API geliştirme tecrübesi",
+          "SQL veya NoSQL veritabanı bilgisi",
+          "Cloud platformlarında (Azure / AWS) çalışma deneyimi",
+          "Remote çalışma disiplinine sahip"
+        ]
+      }
+    }
+  },
+  {
+    "id": "12",
+    "jobName": "Senior Backend .NET Developer",
+    "companyName": "Cloudify",
+    "jobLocation": "İstanbul",
+    "salaryRange": "50.000₺ - 65.000₺ / ay"
+  }
+]

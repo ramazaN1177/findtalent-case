@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Box } from '@mui/material'
+import { Box, Typography } from '@mui/material'
 import { Header } from '@/components/common/Header/Header'
 import { MainContentWithDecor } from '@/components/common/MainContentWithDecor/MainContentWithDecor'
 import { Footer } from '@/components/common/Footer/Footer'
@@ -7,6 +7,8 @@ import { SearchBar } from '@/components/common/SearchBar/SearchBar'
 import { useLanguage } from '@/contexts/LanguageContext'
 import { Button } from '@/components/common/Button/Button'
 import FilterPanel from '@/components/search/FilterPanel/FilterPanel'
+import { Footer2 } from '@/components/common/Footer/Footer-2'
+import JobList from '@/components/search/JobList/JobList'
 
 const Search = () => {
 
@@ -79,30 +81,44 @@ const Search = () => {
                     </Box>
                 </Box>
                 <FilterPanel />
+
                 <Box sx={{
-                        width: "100%",
-                        maxWidth: { xs: 1200, md: "none" },
-                        mx: "auto",
-                        px: { xs: 1.5, sm: 2, md: "150px" },
-                    }}>
+                    width: "100%",
+                    maxWidth: { xs: 1200, md: "none" },
+                    mx: "auto",
+                    px: { xs: 1.5, sm: 2, md: "150px" },
+                }}>
+
+                    <Box
+                        sx={{
+                            display: "flex",
+                            flexDirection: "column",
+                            margin: { xs: "0 8px", sm: "0 20px", md: "0 20px" },
+                            py: { xs: 2, md: 3 },
+                        }}
+                    >
+                        <Box sx={{ width: "100%", mb: 2 }}>
+                            <Typography sx={{ fontSize: 24, fontWeight: 700, color: "#4361ee" }}>Eşleşen iş ilanı yok</Typography>
+                        </Box>
                         <Box
                             sx={{
                                 display: "flex",
                                 flexDirection: { xs: "column", md: "row" },
                                 alignItems: { xs: "center", md: "flex-start" },
-                                justifyContent: { xs: "center", md: "flex-start" },
-                                margin: { xs: "0 8px", sm: "0 20px", md: "0 20px" },
-                                py: { xs: 2, md: 3 },
+                                justifyContent: "flex-start",
+                                gap: 2,
                             }}
                         >
                             <Box sx={{ width: 455, flexShrink: 0, maxWidth: "100%" }}>
-                                a
+                                <JobList />
                             </Box>
                             <Box sx={{ flex: 1, minWidth: 0 }}>
                                 a
                             </Box>
                         </Box>
                     </Box>
+                </Box>
+                <Footer2 />
             </MainContentWithDecor>
             <Footer />
         </Box>
