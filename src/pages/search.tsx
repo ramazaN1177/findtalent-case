@@ -8,12 +8,14 @@ import { useLanguage } from '@/contexts/LanguageContext'
 import { Button } from '@/components/common/Button/Button'
 import FilterPanel from '@/components/search/FilterPanel/FilterPanel'
 import { Footer2 } from '@/components/common/Footer/Footer-2'
-import JobList from '@/components/search/JobList/JobList'
+import JobList, { type JobItem } from '@/components/search/JobList/JobList'
+import JobDetail from '@/components/search/JobDetail/JobDetail'
 
 const Search = () => {
 
     const { t } = useLanguage();
     const [searchValue, setSearchValue] = useState("");
+    const [selectedJob, setSelectedJob] = useState<JobItem | null>(null);
 
     const handleSearch = () => {
         // TODO: arama işlemi
@@ -106,14 +108,65 @@ const Search = () => {
                                 flexDirection: { xs: "column", md: "row" },
                                 alignItems: { xs: "center", md: "flex-start" },
                                 justifyContent: "flex-start",
-                                gap: 2,
+                                gap: "33px",
                             }}
                         >
                             <Box sx={{ width: 455, flexShrink: 0, maxWidth: "100%" }}>
-                                <JobList />
+                                <JobList onJobSelect={setSelectedJob} />
                             </Box>
                             <Box sx={{ flex: 1, minWidth: 0 }}>
-                                a
+                                <Box
+                                    sx={{
+                                        display: "flex",
+                                        alignItems: "center",
+                                        width: "100%",
+                                        height: "120px",
+                                        border: "solid 1px rgba(107, 121, 152, 0.2)",
+                                        backgroundColor: "#fff",
+                                        borderRadius: "16px",
+                                        padding: "23px 30px",
+
+                                    }}>
+                                    <Box sx={{ width: "100%", height: "100%", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+                                        <Box>
+                                            {selectedJob ? (
+                                                <>
+                                                    <Typography sx={{ fontSize: 18, color: "#4361ee", fontWeight: "bold" }}>
+                                                        {selectedJob.jobName}
+                                                    </Typography>
+                                                    <Typography sx={{ fontSize: 18, color: "#6d7b99" }}>
+                                                        {selectedJob.companyName} - {selectedJob.jobLocation}
+                                                    </Typography>
+                                                </>
+                                            ) : (
+                                                <Typography sx={{ fontSize: 18, color: "#6d7b99" }}>
+                                                    Henüz bir iş seçilmedi
+                                                </Typography>
+                                            )}
+                                        </Box>
+                                        <Box sx={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "16px" }}>
+                                            <Button
+                                                disabled={!selectedJob}
+                                                sx={{
+                                                    width: "120px",
+                                                    minHeight: "40px",
+                                                    height: "40px",
+                                                    padding: "8px 31px",
+                                                    fontSize: 18,
+                                                    fontWeight: "bold",
+                                                    color: "#4361ee",
+                                                }}
+                                            >
+                                                Başvur
+                                            </Button>
+                                            <Box sx={{ display: "flex", gap: "16px" }}>
+                                                <Box component="img" src="/icon-filled-favorite@3x.png" alt="arrow-right" sx={{ width: 24, height: 24 }} />
+                                                <Box component="img" src="/go-on-filled-icon@3x.png" alt="arrow-right" sx={{ width: 24, height: 24 }} />
+                                            </Box>
+                                        </Box>
+                                    </Box>
+                                </Box>
+                                <JobDetail job={selectedJob ?? (undefined as unknown as JobItem)} />
                             </Box>
                         </Box>
                     </Box>

@@ -2,8 +2,26 @@ import React from 'react'
 import { Box, Typography } from '@mui/material'
 import jobsData from '@/mock/jobs.json'
 
-const JobList = () => {
-  const jobs = jobsData as Array<{ id: string; jobName: string; companyName: string; jobLocation: string }>
+export type JobItem = {
+  id: string
+  jobName: string
+  companyName: string
+  jobLocation: string
+  jobDetail?: {
+    intro: string
+    jobDescription: { title: string; items: string[] }
+    qualifications: { title: string; items: string[] }
+    candidateCriteria: { title: string; items: string[] }
+    recruitmentProcess: { title: string; items: string[] }
+  }
+}
+
+type JobListProps = {
+  onJobSelect?: (job: JobItem) => void
+}
+
+const JobList = ({ onJobSelect }: JobListProps) => {
+  const jobs = jobsData as JobItem[]
 
   return (
     <Box sx={{ maxWidth: "455px", width: "100%" }}>
@@ -58,6 +76,10 @@ const JobList = () => {
           {jobs.map((job) => (
             <Box
               key={job.id}
+              onClick={() => onJobSelect?.(job)}
+              role="button"
+              tabIndex={0}
+              onKeyDown={(e) => e.key === 'Enter' && onJobSelect?.(job)}
               sx={{
                 minHeight: "120px",
                 borderBottom: "solid 1px rgba(107, 121, 152, 0.2)",
