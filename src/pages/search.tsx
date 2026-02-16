@@ -108,7 +108,7 @@ const Search = () => {
                             gap: "20px",
                         }}
                     >
-                        <Box sx={{ width: "100%", mb: 2 }}>
+                        <Box sx={{ width: "100%", mb: 2, mt: { xs: 9, lg: 0 }, textAlign: { xs: "center", lg: "left" } }}>
                             <Typography sx={{ fontSize: 24, fontWeight: 700, color: "#4361ee" }}>{t("search.noMatchingJobs")}</Typography>
                         </Box>
                         <Box
