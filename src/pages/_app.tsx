@@ -4,6 +4,7 @@ import { ThemeProvider, CssBaseline } from "@mui/material";
 import theme from "@/styles/theme";
 import { LanguageProvider } from "@/contexts/LanguageContext";
 import { AuthProvider } from "@/contexts/AuthContext";
+import { SearchProvider } from "@/contexts/SearchContext";
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
@@ -11,7 +12,9 @@ export default function App({ Component, pageProps }: AppProps) {
       <CssBaseline />
       <LanguageProvider>
         <AuthProvider>
-          <Component {...pageProps} />
+          <SearchProvider>
+            <Component {...pageProps} />
+          </SearchProvider>
         </AuthProvider>
       </LanguageProvider>
     </ThemeProvider>

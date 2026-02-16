@@ -2,6 +2,7 @@ import React ,{ createContext, useEffect, useCallback, useContext, useState, Rea
 import userMock from "@/mock/user.json";
 
 const AUTH_STORAGE_KEY = "findtalent-user";
+const REGISTERED_USERS_KEY = "findtalent-registered-users";
 
 
 export type User = {
@@ -32,13 +33,30 @@ export type User = {
     isAuthenticated: boolean;
     isLoading: boolean;
     login: (email: string, password: string) => boolean;
+    register: (firstname: string, lastname: string, email: string, password: string) => boolean;
     logout: () => void;
+    updateUser: (updates: Partial<User>) => void;
   };
 
   const AuthContext = createContext<AuthContextType | null>(null);
 
-  const users = userMock as User[];
+  const baseUsers = userMock as User[];
 
+  function getRegisteredUsers(): User[] {
+    if (typeof window === "undefined") return [];
+    try {
+      const raw = localStorage.getItem(REGISTERED_USERS_KEY);
+      if (!raw) return [];
+      const parsed = JSON.parse(raw);
+      return Array.isArray(parsed) ? parsed : [];
+    } catch {
+      return [];
+    }
+  }
+
+  function getAllUsers(): User[] {
+    return [...baseUsers, ...getRegisteredUsers()];
+  }
 
   export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
     const [user, setUser] = useState<User | null>(null);
@@ -59,6 +77,7 @@ export type User = {
     }, []);
   
     const login = useCallback((email: string, password: string): boolean => {
+      const users = getAllUsers();
       const found = users.find(
         (u) => (u.email || "").toLowerCase() === email.toLowerCase() && u.password === password
       );
@@ -74,11 +93,62 @@ export type User = {
       return false;
     }, []);
   
+    const register = useCallback((firstname: string, lastname: string, email: string, password: string): boolean => {
+      const users = getAllUsers();
+      const normalizedEmail = email.trim().toLowerCase();
+      if (users.some((u) => (u.email || "").toLowerCase() === normalizedEmail)) {
+        return false;
+      }
+      const registered = getRegisteredUsers();
+      const nextId = registered.length > 0
+        ? Math.max(...registered.map((u) => u.id), 0) + 1
+        : (Math.max(0, ...baseUsers.map((u) => u.id)) + 1);
+      const newUser: User = {
+        id: nextId,
+        firstname: firstname.trim(),
+        lastname: lastname.trim(),
+        email: normalizedEmail,
+        password,
+        title: "",
+        avatar: "",
+        company: "",
+        location: "",
+        phone: "",
+        websites: [],
+        documents: [],
+        savedSearches: [],
+        myApplications: [],
+        profileContent: [],
+        experience: [],
+        education: [],
+        certificates: [],
+        skills: [],
+        hobbies: [],
+      };
+      const updated = [...registered, newUser];
+      if (typeof window !== "undefined") {
+        localStorage.setItem(REGISTERED_USERS_KEY, JSON.stringify(updated));
+      }
+      return true;
+    }, []);
+  
     const logout = useCallback(() => {
       setUser(null);
       if (typeof window !== "undefined") {
         localStorage.removeItem(AUTH_STORAGE_KEY);
       }
+    }, []);
+
+    const updateUser = useCallback((updates: Partial<User>) => {
+      setUser((prev) => {
+        if (!prev) return prev;
+        const next = { ...prev, ...updates };
+        if (typeof window !== "undefined") {
+          const { password: _, ...toStore } = next;
+          localStorage.setItem(AUTH_STORAGE_KEY, JSON.stringify(toStore));
+        }
+        return next;
+      });
     }, []);
   
     const value: AuthContextType = {
@@ -86,7 +156,9 @@ export type User = {
       isAuthenticated: !!user,
       isLoading,
       login,
+      register,
       logout,
+      updateUser,
     };
   
     return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;

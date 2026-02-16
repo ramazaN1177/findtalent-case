@@ -52,7 +52,7 @@ export default function Profile() {
                             flexDirection: { xs: "column", sm: "row" },
                             alignItems: { xs: "stretch", sm: "flex-start" },
                             justifyContent: "center",
-                            gap: "clamp(8px, 1vw, 15px)",
+                            gap: { xs: 2, sm: 3, md: 6, lg: "100px" },
                             width: "100%",
                             maxWidth: { xs: "100%", sm: "100%", md: 734 },
                             mx: "auto",

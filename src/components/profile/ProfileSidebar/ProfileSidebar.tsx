@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Box, IconButton, Link, Typography } from "@mui/material";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import GitHubIcon from "@mui/icons-material/GitHub";
@@ -10,6 +10,7 @@ import PictureAsPdfIcon from "@mui/icons-material/PictureAsPdf";
 import DescriptionIcon from "@mui/icons-material/Description";
 import { useAuth } from "@/contexts/AuthContext";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { ProfileModal, WebsiteModal, DocumentModal } from "@/components/profile/ProfileModal";
 
 const WEBSITE_ICONS: Record<string, React.ComponentType<{ sx?: object }>> = {
   LinkedIn: LinkedInIcon,
@@ -22,6 +23,9 @@ const WEBSITE_ICONS: Record<string, React.ComponentType<{ sx?: object }>> = {
 export const ProfileSidebar = () => {
   const { user } = useAuth();
   const { t } = useLanguage();
+  const [profileModalOpen, setProfileModalOpen] = useState(false);
+  const [websiteModalOpen, setWebsiteModalOpen] = useState(false);
+  const [documentModalOpen, setDocumentModalOpen] = useState(false);
 
   return (
     <Box sx={{ maxWidth: "260px", width: "100%" }}>
@@ -84,7 +88,7 @@ export const ProfileSidebar = () => {
             <Link
               href="#"
               underline="always"
-              onClick={(e) => e.preventDefault()}
+              onClick={(e) => { e.preventDefault(); setProfileModalOpen(true); }}
               sx={{
                 fontFamily: '"Nunito", sans-serif',
                 fontSize: "14px",
@@ -151,7 +155,7 @@ export const ProfileSidebar = () => {
                 <Link
                   href="#"
                   underline="always"
-                  onClick={(e) => e.preventDefault()}
+                  onClick={(e) => { e.preventDefault(); setWebsiteModalOpen(true); }}
                   sx={{
                     fontFamily: '"Nunito", sans-serif',
                     fontSize: "14px",
@@ -251,7 +255,7 @@ export const ProfileSidebar = () => {
                 <Link
                   href="#"
                   underline="always"
-                  onClick={(e) => e.preventDefault()}
+                  onClick={(e) => { e.preventDefault(); setDocumentModalOpen(true); }}
                   sx={{
                     fontFamily: '"Nunito", sans-serif',
                     fontSize: "14px",
@@ -448,7 +452,9 @@ export const ProfileSidebar = () => {
         </Box>
       </Box>
 
-
+      <ProfileModal open={profileModalOpen} onClose={() => setProfileModalOpen(false)} />
+      <WebsiteModal open={websiteModalOpen} onClose={() => setWebsiteModalOpen(false)} />
+      <DocumentModal open={documentModalOpen} onClose={() => setDocumentModalOpen(false)} />
     </Box>
   )
 }

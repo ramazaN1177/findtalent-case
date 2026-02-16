@@ -1,10 +1,11 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { Box, Typography } from '@mui/material'
 import { Header } from '@/components/common/Header/Header'
 import { MainContentWithDecor } from '@/components/common/MainContentWithDecor/MainContentWithDecor'
 import { Footer } from '@/components/common/Footer/Footer'
 import { SearchBar } from '@/components/common/SearchBar/SearchBar'
 import { useLanguage } from '@/contexts/LanguageContext'
+import { useSearchContext } from '@/contexts/SearchContext'
 import { Button } from '@/components/common/Button/Button'
 import FilterPanel from '@/components/search/FilterPanel/FilterPanel'
 import { Footer2 } from '@/components/common/Footer/Footer-2'
@@ -12,10 +13,17 @@ import JobList, { type JobItem } from '@/components/search/JobList/JobList'
 import JobDetail from '@/components/search/JobDetail/JobDetail'
 
 const Search = () => {
-
     const { t } = useLanguage();
+    const { selectedJob: contextSelectedJob, clearSelectedJob } = useSearchContext();
     const [searchValue, setSearchValue] = useState("");
     const [selectedJob, setSelectedJob] = useState<JobItem | null>(null);
+
+    useEffect(() => {
+        if (contextSelectedJob) {
+            setSelectedJob(contextSelectedJob);
+            clearSelectedJob();
+        }
+    }, [contextSelectedJob, clearSelectedJob]);
 
     const handleSearch = () => {
         // TODO: arama işlemi
@@ -38,7 +46,7 @@ const Search = () => {
                             flexDirection: { xs: "column", sm: "row" },
                             alignItems: { xs: "stretch", sm: "flex-start" },
                             justifyContent: "center",
-                            gap: "clamp(8px, 1vw, 15px)",
+                            gap: { xs: 2, sm: 3, md: 6, lg: "100px" },
                             width: "100%",
                             maxWidth: { xs: "100%", sm: "100%", md: 734 },
                             mx: "auto",
@@ -97,10 +105,11 @@ const Search = () => {
                             flexDirection: "column",
                             margin: { xs: "0 8px", sm: "0 20px", md: "0 20px" },
                             py: { xs: 2, md: 3 },
+                            gap: "20px",
                         }}
                     >
                         <Box sx={{ width: "100%", mb: 2 }}>
-                            <Typography sx={{ fontSize: 24, fontWeight: 700, color: "#4361ee" }}>Eşleşen iş ilanı yok</Typography>
+                            <Typography sx={{ fontSize: 24, fontWeight: 700, color: "#4361ee" }}>{t("search.noMatchingJobs")}</Typography>
                         </Box>
                         <Box
                             sx={{
@@ -112,7 +121,7 @@ const Search = () => {
                             }}
                         >
                             <Box sx={{ width: 455, flexShrink: 0, maxWidth: "100%" }}>
-                                <JobList onJobSelect={setSelectedJob} />
+                                <JobList onJobSelect={setSelectedJob} selectedJobId={selectedJob?.id} />
                             </Box>
                             <Box sx={{ flex: 1, minWidth: 0 }}>
                                 <Box
@@ -140,7 +149,7 @@ const Search = () => {
                                                 </>
                                             ) : (
                                                 <Typography sx={{ fontSize: 18, color: "#6d7b99" }}>
-                                                    Henüz bir iş seçilmedi
+                                                    {t("search.noJobSelected")}
                                                 </Typography>
                                             )}
                                         </Box>
@@ -157,7 +166,7 @@ const Search = () => {
                                                     color: "#4361ee",
                                                 }}
                                             >
-                                                Başvur
+                                                {t("search.apply")}
                                             </Button>
                                             <Box sx={{ display: "flex", gap: "16px" }}>
                                                 <Box component="img" src="/icon-filled-favorite@3x.png" alt="arrow-right" sx={{ width: 24, height: 24 }} />

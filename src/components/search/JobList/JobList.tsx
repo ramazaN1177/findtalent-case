@@ -18,9 +18,10 @@ export type JobItem = {
 
 type JobListProps = {
   onJobSelect?: (job: JobItem) => void
+  selectedJobId?: string | null
 }
 
-const JobList = ({ onJobSelect }: JobListProps) => {
+const JobList = ({ onJobSelect, selectedJobId }: JobListProps) => {
   const jobs = jobsData as JobItem[]
 
   return (
@@ -73,7 +74,9 @@ const JobList = ({ onJobSelect }: JobListProps) => {
             },
           }}
         >
-          {jobs.map((job) => (
+          {jobs.map((job) => {
+            const isSelected = selectedJobId === job.id
+            return (
             <Box
               key={job.id}
               onClick={() => onJobSelect?.(job)}
@@ -83,17 +86,22 @@ const JobList = ({ onJobSelect }: JobListProps) => {
               sx={{
                 minHeight: "120px",
                 borderBottom: "solid 1px rgba(107, 121, 152, 0.2)",
-                backgroundColor: "#fff",
+                backgroundColor: isSelected ? "#e8ecff" : "#fff",
                 display: "flex",
                 alignItems: "center",
                 padding: "23px 0 23px 30px",
                 cursor: "pointer",
                 transition: "background-color 0.2s, color 0.2s",
+                borderLeft: isSelected ? "4px solid #4361ee" : "4px solid transparent",
                 '&:hover': {
-                  backgroundColor: "#4361ee",
-                  '& .job-name': { color: "#fff " },
-                  '& .company-name': { color: "#fff " },
-                  '& .job-location': { color: "#fff " },
+                  backgroundColor: isSelected ? "#dde2ff" : "#4361ee",
+                  ...(isSelected
+                    ? {}
+                    : {
+                        '& .job-name': { color: "#fff " },
+                        '& .company-name': { color: "#fff " },
+                        '& .job-location': { color: "#fff " },
+                      }),
                 },
               }}
             >
@@ -118,7 +126,7 @@ const JobList = ({ onJobSelect }: JobListProps) => {
                 </Typography>
               </Box>
             </Box>
-          ))}
+          )})}
         </Box>
       </Box>
     </Box>

@@ -1,11 +1,19 @@
 import { Box, Link, Typography } from '@mui/material'
-import React from 'react'
+import React, { useState } from 'react'
 import { useLanguage } from '@/contexts/LanguageContext'
 import { useAuth } from '@/contexts/AuthContext'
+import { ProfileContentModal, type ContentModalType } from '@/components/profile/ProfileModal'
 
 export const SkillsSection = () => {
   const { t } = useLanguage();
   const { user } = useAuth();
+  const [contentModalOpen, setContentModalOpen] = useState(false);
+  const [contentModalType, setContentModalType] = useState<ContentModalType>("professional");
+
+  const openContentModal = (type: ContentModalType) => {
+    setContentModalType(type);
+    setContentModalOpen(true);
+  };
   return (
     <Box sx={{ width: "100%", minWidth: 0, maxWidth: "100%", overflow: "hidden" }}>
       <Box sx={{ width: "100%", height: "100%", minWidth: 0 }}>
@@ -28,7 +36,7 @@ export const SkillsSection = () => {
               <Link
                 href="#"
                 underline="none"
-                onClick={(e) => e.preventDefault()}
+                onClick={(e) => { e.preventDefault(); openContentModal("professional"); }}
                 sx={{
                   fontFamily: '"Nunito", sans-serif',
                   fontSize: "16px",
@@ -85,7 +93,7 @@ export const SkillsSection = () => {
               <Link
                 href="#"
                 underline="none"
-                onClick={(e) => e.preventDefault()}
+                onClick={(e) => { e.preventDefault(); openContentModal("experience"); }}
                 sx={{
                   fontFamily: '"Nunito", sans-serif',
                   fontSize: "16px",
@@ -155,7 +163,7 @@ export const SkillsSection = () => {
               <Link
                 href="#"
                 underline="none"
-                onClick={(e) => e.preventDefault()}
+                onClick={(e) => { e.preventDefault(); openContentModal("education"); }}
                 sx={{
                   fontFamily: '"Nunito", sans-serif',
                   fontSize: "16px",
@@ -226,7 +234,7 @@ export const SkillsSection = () => {
               <Link
                 href="#"
                 underline="none"
-                onClick={(e) => e.preventDefault()}
+                onClick={(e) => { e.preventDefault(); openContentModal("certificates"); }}
                 sx={{
                   fontFamily: '"Nunito", sans-serif',
                   fontSize: "16px",
@@ -354,6 +362,11 @@ export const SkillsSection = () => {
           </Box>
         </Box>
       </Box>
+      <ProfileContentModal
+        open={contentModalOpen}
+        onClose={() => setContentModalOpen(false)}
+        contentType={contentModalType}
+      />
     </Box>
   );
 };          
