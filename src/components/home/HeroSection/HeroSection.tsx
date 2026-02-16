@@ -157,7 +157,7 @@ export const HeroSection: React.FC = () => {
                             />
                             <Box
                                 component={Link}
-                                href="/detayli-arama"
+                                href="/search"
                                 sx={{
                                     mt: "clamp(4px, 0.5vw, 8px)",
                                     color: "#fff",
