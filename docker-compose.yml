@@ -1,3 +1,4 @@
+# Port 3002:3000 — uygulama host'ta 3002'de dinler.
 services:
   app:
     build:
@@ -6,6 +7,6 @@ services:
     container_name: findtalent-app
     restart: unless-stopped
     ports:
-      - "3000:3000"
+      - "3002:3000"
     environment:
       - NODE_ENV=production
