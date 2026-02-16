@@ -6,14 +6,15 @@ WORKDIR /app
 # Copy package files
 COPY package.json package-lock.json* ./
 
-# Install dependencies
-RUN npm ci
+# Install dependencies (npm install works when lockfile is missing or out of sync)
+RUN npm install
 
 # Copy source
 COPY . .
 
-# Build Next.js (standalone output)
+# Build Next.js (standalone output) - increase memory for build
 ENV NEXT_TELEMETRY_DISABLED=1
+ENV NODE_OPTIONS="--max-old-space-size=4096"
 RUN npm run build
 
 # Production stage
