@@ -1,4 +1,3 @@
-'use client';
 
 import React, { createContext, useContext, useState, useCallback } from 'react';
 import type { JobItem } from '@/components/search/JobList/JobList';

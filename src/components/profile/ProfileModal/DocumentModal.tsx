@@ -1,4 +1,3 @@
-"use client";
 
 import React, { useState, useRef } from "react";
 import { Modal, Box, Typography, Button } from "@mui/material";
