@@ -20,7 +20,7 @@ Aşağıdaki özellikler projeye eklenmiş ve uygulama ile entegre edilmiştir:
 
 - **Kayıt Ol:** Yeni kullanıcılar ad, soyad, e-posta ve şifre ile hesap oluşturabilir.
 - **Giriş Yap:** Mevcut kullanıcılar e-posta ve şifre ile güvenli giriş yapabilir; "Beni hatırla" seçeneği desteklenir.
-- Oturum bilgisi tarayıcıda saklanır; sayfa yenilense bile kullanıcı girişli kalır.
+- Oturum bilgisi tarayıcıda saklanır; sayfa yenilense bile kullanıcı oturumu açık kalır.
 
 ![Giriş sayfası](./assets/screenshot-login.png)
 *Giriş sayfası*
@@ -32,7 +32,6 @@ Aşağıdaki özellikler projeye eklenmiş ve uygulama ile entegre edilmiştir:
 
 - **Aramalar tüm sayfalarda kullanılabilir.** Header (üst menü) üzerindeki arama alanı sayesinde ana sayfa, profil, arama sayfası vb. her yerden iş ilanı araması yapılabilir.
 - Ana sayfada ve arama sayfasında **iş, şirket ve anahtar kelime** ile arama yapılabilir.
-- **Detaylı arama** bağlantısı ile gelişmiş filtreleme imkânı sunulur.
 - **Popüler aramalar** ve **öne çıkan iş ilanları** ile keşif kolaylaştırılır.
 - Arama sonuçları sayfasında ilan listesi ve seçilen ilanın detayı gösterilir.
 
